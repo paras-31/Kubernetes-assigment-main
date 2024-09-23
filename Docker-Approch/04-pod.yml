@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-cleanup
+  namespace: first-namespace
+spec:
+  replicas: 1  # You can adjust this if you want more replicas
+  selector:
+    matchLabels:
+      app: pod-cleanup
+  template:
+    metadata:
+      labels:
+        app: pod-cleanup
+    spec:
+      containers:
+      - name: cleanup-container
+        image: paraskamboj/python:v3
+        
